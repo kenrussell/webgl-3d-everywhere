@@ -1,0 +1,267 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+
+Slightly modified to create Khronos / WebGL slide template
+
+Author:  Kenneth Russell <kbr@google.com>
+
+URL: https://github.com/kenrussell/webgl-3d-everywhere
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Title is populated with content in slide_config.js -->
+  <title>WebGL: 3D Everywhere</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script src="config.js"></script>
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="fill nobackground">
+    <img style="display: block; margin-left: auto; margin-right: auto; position:relative; top: 100px;" src="images/WebGL_1500.png" width="600px">
+    <img style="display: block; margin-left: auto; margin-right: auto; position:relative; top: 100px;" src="images/Khronos_Group_1500.png" width="600px">
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="logobar"><img src="images/webgl.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through slide_config.js. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>What is WebGL?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>WebGL exposes the power in millions of graphics processors (GPUs) in millions of devices to the democratic environment of the World Wide Web. </li>
+        <li>It lets developers publish fast, fluid applications to hundreds of millions of users seamlessly.</li>
+        <li>It gives users access to artistic, scientific, mathematical, geographical, and medical applications and visualizations, without installing any software aside from a web browser.
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>WebGL Examples</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>A few examples of content utilizing WebGL:
+<br>
+<table width="90%" border="0" cellpadding="5">
+<tr>
+<td><a href="https://www.google.com/maps/preview">Google Maps</a>
+<td><a href="http://slicedrop.com/">SliceDrop</a> (<a href="http://www.youtube.com/watch?v=-RImAucVDXA">video</a>)
+<td><a href="http://stephaneginier.com/sculptgl/">SculptGL</a>
+<td><a href="http://www.ro.me/">ro.me</a>
+</tr>
+<tr>
+<td><a href="http://acko.net/blog/on-webgl/">Steven Wittens on WebGL</a>
+<td><a href="http://acko.net/files/fullfrontal/fullfrontal/webglmath/online.html">Steven Wittens on Making WebGL Dance</a>
+<td><a href="http://threejs.org/">three.js</a>
+<td><a href="http://www.mrdoob.com/">mr. doob's site</a>
+</tr>
+<tr>
+<td><a href="http://alteredqualia.com/">AlteredQualia's site</a>
+<td><a href="https://www.shadertoy.com/">ShaderToy</a>
+<td><a href="http://madebyevan.com/">Evan Wallace's site</a>
+<td><a href="http://www.unrealengine.com/html5/">Unreal Engine in HTML5</a>
+</tr>
+<tr>
+<td><a href="http://learningwebgl.com/blog/">Learning WebGL</a>
+<td><a href="http://www.turbulenz.biz/">Turbulenz</a>
+<td><a href="https://code.google.com/p/webglsamples/">WebGL Samples</a>
+<td><a href="http://www.ibiblio.org/e-notes/webgl/webgl.htm">Evgeny Demidov's samples</a>
+</table>
+    </li>
+    <li>Commercial products utilizing WebGL:
+<table width="90%" border="0" cellpadding="5">
+<tr>
+<td><a href="http://home.lagoa.com/">Lagoa</a>
+<td><a href="http://verold.com/">Verold Studio</a>
+<td><a href="http://sketchfab.com/">Sketchfab</a>
+</tr>
+<tr>
+<td><a href="http://clara.io/">Clara.io</a>
+<td><a href="http://cesium.agi.com/">Cesium</a>  
+<td><a href="https://sunglass.io/">Sunglass</a>
+</tr>
+</table>
+    </li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>More technically:</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>WebGL exposes the OpenGL ES 2.0 graphics API to the web.</li>
+        <li>OpenGL ES 2.0 is the graphics programming API available on the majority of mobile devices today, and provides a common set of graphics functionality portable between cell phones, laptops and desktops.</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>A Brief Overview of OpenGL and OpenGL ES 2.0</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>OpenGL is a 3D graphics API standard originally developed at Silicon Graphics, Inc., and now developed under the stewardship of the Khronos Group.
+        <li>It is the only standard 3D graphics API which spans multiple operating systems and classes of hardware.</li>
+        <li>In its first incarnations, OpenGL, and the 3D graphics hardware it ran on, incorporated many "built-in" or "fixed-function" concepts such as lights, hierarchical transformations, a viewer or "camera", particular shading models, and certain kinds of special effects such as texturing and environment mapping for creating objects with more detail or that appeared to be shiny.</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Programmable Hardware</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>With the advent of programmable graphics hardware in the early 2000s, it became possible to dramatically extend the kinds of visual effects that the GPU could render.
+        <li>Instead of the GPU itself incorporating the lighting model, for example, the graphics programmer could write a small program which would compute the color of each pixel on the screen.
+        <li>Not only could all of the previous lighting effects be achieved, but dramatic new ones could be written, all without changing the underlying graphics hardware.
+        <li>The programmable shading paradigm allowed the OpenGL API to be redesigned and dramatically simplified.
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenGL ES 2.0</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>OpenGL ES 2.0 represents the second iteration of the graphics API for mobile phones, in which all of the legacy fixed functionality has been removed, and the only way to access the graphics processor is through the programmable pipeline.
+        <li>The API is quite simple and elegant, yet efficient, and allows remarkable graphical effects to be created. Not just 3D.
+        <li>OpenGL ES 3.0 has recently been released, which once again dramatically increases the graphics capabilities of mobile devices, and the WebGL API will track this development.
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>WebGL and the Web</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Web pages comprise HTML markup for their graphical description, and the JavaScript language for programmability.
+        <li>The HTML <code>&lt;canvas&gt;</code> element provides a drawing surface that can be drawn to with a sequence of commands issued by JavaScript.
+        <li>When initially introduced, <code>&lt;canvas&gt;</code> provided a 2D rendering context allowing shapes and images to be drawn.
+        <li>WebGL is an alternative rendering context for the <code>&lt;canvas&gt;</code> element which exposes OpenGL ES 2.0's programmable graphics API to JavaScript.
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>WebGL and the Web</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>WebGL integrates with the HTML ecosystem and leverages the powerful media capabilities of the web browser
+        <ul>
+          <li>Images, video, WebRTC, Web Audio
+        </ul>
+        <li>The web's inherent client-server model encourages collaborative applications to be built
+        <ul>
+          <li>Note that all of the commercial products mentioned previously have some notion of collaboration built in
+        </ul>
+        <li>Development of the WebGL specification has resulted in useful ancillary artifacts such as the <a href="http://www.khronos.org/registry/typedarray/specs/latest/">typed array specification</a> which has become the standard mechanism for operating upon binary data from JavaScript
+        <li> Ongoing work with teams putting this technology into practice, such as Google's Maps team, is informing evolution of the HTML APIs
+        <ul>
+          <li>Higher performance
+          <li>Better parallelism
+          <li>Larger feature set
+        </ul>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Conclusion</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>WebGL is an evolving specification and ecosystem
+        <li>We look forward to your participation in the community!
+        <li><a href="http://www.khronos.org/webgl/">WebGL landing page at the Khronos Group</a>
+        <li><a href="http://www.khronos.org/webgl/wiki">WebGL wiki</a>
+        <li><a href="http://www.khronos.org/registry/webgl/specs/latest/">WebGL specification (editor’s draft)</a>
+        <li><a href="http://groups.google.com/group/webgl-dev-list">WebGL developers’ mailing list (for discussing the use of WebGL)</a>
+        <li><a href="http://www.khronos.org/webgl/public-mailing-list/">WebGL public mailing list (for discussing the specification)</a>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="logobar"><img src="images/webgl.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Q&A</h2>
+    </hgroup>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="fill nobackground">
+    <img style="display: block; margin-left: auto; margin-right: auto; position:relative; top: 100px;" src="images/WebGL_1500.png" width="600px">
+    <img style="display: block; margin-left: auto; margin-right: auto; position:relative; top: 100px;" src="images/Khronos_Group_1500.png" width="600px">
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
